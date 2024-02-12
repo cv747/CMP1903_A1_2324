@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CMP1903_A1_2324
+﻿namespace CMP1903_A1_2324
 {
+    /// <summary>
+    /// This is the main class for the program.
+    /// </summary>
     internal class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// This is the program entry-point, all the code begins execution from here.
+        /// </summary>
+        public static void Main()
         {
-            /*
-             * Create a Game object and call its methods.
-             * Create a Testing object to verify the output and operation of the other classes.
-             */
+            Testing testing = new Testing();
+            testing.TestDie();
         }
     }
 }
