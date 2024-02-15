@@ -1,4 +1,6 @@
-﻿namespace CMP1903_A1_2324
+﻿using System;
+
+namespace CMP1903_A1_2324
 {
     /// <summary>
     /// This is the main class for the program.
@@ -10,8 +12,21 @@
         /// </summary>
         public static void Main()
         {
+            Game game = new Game();
+            (int total, int[] rolls) = game.RollDie();
+
+            foreach (int roll in rolls)
+            {
+                Console.WriteLine("Rolled a " + roll);
+            }
+
+            Console.WriteLine("The total was " + total);
+
+
             Testing testing = new Testing();
-            testing.TestDie();
+            testing.TestDie();  // Test: Ensures Die class operates correctly.
+            testing.TestArrayEqual();   // Test: Ensure array equality checking method works.
+            testing.TestGame();  // Test: Ensure the game class works.
         }
     }
 }
