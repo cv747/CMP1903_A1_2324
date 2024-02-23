@@ -38,7 +38,7 @@ namespace CMP1903_A1_2324
 
             (int total, int[] rolls) = game.RollDie();
 
-            Debug.Assert(total == rolls.Sum());  // Test: Total and sum of rolls equal.
+            Debug.Assert(total == rolls.Sum());  // Test: Total and sum of rolls array equal.
 
             int[] storedRolls = game.GetDieValues();
 
@@ -60,18 +60,18 @@ namespace CMP1903_A1_2324
         /// <summary>
         /// Tests if two array of ints are equal.
         /// </summary>
-        public bool ArraysEqual(int[] arrOne, int[] arrTwo)
+        public static bool ArraysEqual(int[] arrOne, int[] arrTwo)
         {
             if (arrOne.Length != arrTwo.Length)
-                return false;
+                return false;  // Incorrect length must be not equal.
 
             for (int i = 0; i < arrOne.Length; i++)
             {
-                if (arrOne[i] != arrTwo[i])
+                if (arrOne[i] != arrTwo[i])  // Compare each element.
                     return false;
             }
 
-            return true;
+            return true;  // Arrays equal.
         }
     }
 }

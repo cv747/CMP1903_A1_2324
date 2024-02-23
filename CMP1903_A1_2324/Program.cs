@@ -32,7 +32,7 @@ namespace CMP1903_A1_2324
                 }
                 Console.WriteLine("The total was " + total + ".");
 
-                Console.Write("\nWould you like to roll again? (press q for no) ");
+                Console.Write("\nWould you like to roll again? (press q for no, anything else for yes) ");
             } while (Console.ReadKey().Key != ConsoleKey.Q);
 
             GenerateStats(allRolls, totals);

@@ -26,8 +26,7 @@ namespace CMP1903_A1_2324
         /// Game game = new Game();
         /// var (total, rolls) = game.RollDie();
         /// Console.WriteLine(total);
-        /// foreach (int roll in rolls)
-        /// {
+        /// foreach (int roll in rolls) {
         ///     Console.WriteLine(roll);
         /// }
         /// </code>
