@@ -12,12 +12,16 @@ namespace CMP1903_A1_2324
         /// </value>
         /// <remarks>
         /// This means that we only need to create an instance of the Random class once rather than on every die roll.
+        /// This also avoids RANDOM being created on object instantiation, which would cause all the Die to have the same random seed.
         /// </remarks>
         private static readonly Random RANDOM = new Random();
 
         /// <value>
-        /// The <c>Value</c> property is used to store the current state of the die (the side it is showing).
+        /// The <c>Value</c> property is used to access the side the dice is displaying.
         /// </value>
+        /// <remarks>
+        /// Doing a property without a specific field attached to it automatically generates an anonymous backing field2.
+        /// </remarks>
         public int Value { get; private set; } = RANDOM.Next(1, 7);
 
 

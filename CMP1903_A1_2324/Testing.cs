@@ -36,11 +36,15 @@ namespace CMP1903_A1_2324
         {
             Game game = new Game();
 
-            (int total, int[] rolls) = game.RollDie();
+            (int total, int[] rolls) = game.RollDice();
 
-            Debug.Assert(total == rolls.Sum());  // Test: Total and sum of rolls array equal.
+            Debug.Assert(rolls.Length == Game.DICE_COUNT);  // Test: Correct number of rolls occured.
+
+            Debug.Assert(total == rolls.Sum());  // Test: Total report and sum of rolls array equal.
 
             int[] storedRolls = game.GetDieValues();
+
+            Debug.Assert(storedRolls.Length == Game.DICE_COUNT);  // Test: Correct number of dice exist.
 
             Debug.Assert(rolls.Length == storedRolls.Length);  // Test: Same number of die.
 
@@ -73,5 +77,6 @@ namespace CMP1903_A1_2324
 
             return true;  // Arrays equal.
         }
+
     }
 }
