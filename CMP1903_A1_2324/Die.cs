@@ -17,9 +17,15 @@ namespace CMP1903_A1_2324 {
     /// A static instance of the Random object to create random values for the class.
     /// </value>
     /// <remarks>
-    /// This means that we only need to create an instance of the Random class once rather than on every die roll.
-    /// This avoids <c>_random</c> being created on Die instantiation, which would cause Die's created at the same time to have the same seed.
-    /// Same seed generation could also have been done by passing a Random object to the Die class to increase memory efficiency, but that creates more complexity that is not needed for this.
+    /// This means that we only need to create an instance of the Random class once rather than on 
+    /// every die roll.
+    ///
+    /// This avoids <c>_random</c> being created on Die instantiation, which would cause Die's 
+    /// created at the same time to have the same seed.
+    ///
+    /// Same seed generation could also have been done by passing a Random object to the Die class 
+    /// to increase memory efficiency, but that creates more complexity that is not needed for 
+    /// this.
     /// </remarks>
     private static readonly Random _random = new Random();
 
@@ -27,7 +33,8 @@ namespace CMP1903_A1_2324 {
     /// The <c>Value</c> property is used to access the side the dice is displaying.
     /// </value>
     /// <remarks>
-    /// Doing a property without a specific field attached to it automatically generates an anonymous backing field.
+    /// Doing a property without a specific field attached to it automatically generates an 
+    /// anonymous backing field.
     /// </remarks>
     public int Value { get; private set; } = _random.Next(1, NumberOfSides - 1);
 

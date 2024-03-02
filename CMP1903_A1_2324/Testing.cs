@@ -12,8 +12,9 @@ namespace CMP1903_A1_2324 {
     /// </summary>
     public void TestDie() {
       Die die = new Die();
-      HashSet<int> numbersOccured = new HashSet<int>();  // HashSet will ensure only unique items are stored.
 
+      // HashSet will ensure only unique items are stored.
+      HashSet<int> numbersOccured = new HashSet<int>();
       for (int i = 0; i < 1000; i++) {
         int rolledNum = die.Roll();
         Debug.Assert(rolledNum == die.Value);  // Test: Property set by roll.
@@ -22,7 +23,8 @@ namespace CMP1903_A1_2324 {
         _ = numbersOccured.Add(rolledNum);
       }
 
-      Debug.Assert(numbersOccured.Count == Die.NumberOfSides);  // Test: Only 6 unique numbers occured.
+      // Test: Only 6 unique numbers occured.
+      Debug.Assert(numbersOccured.Count == Die.NumberOfSides);
     }
 
     /// <summary>
@@ -50,9 +52,12 @@ namespace CMP1903_A1_2324 {
     /// Tests that the <c>ArraysEqual</c> method works correctly.
     /// </summary>
     public void TestArrayEqual() {
-      Debug.Assert(ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 }));  // Test: Equal arrays.
-      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 4, 3, 2, 1 }));  // Test: Unequal arrays.
-      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3 }));  // Test: Different array lengths.
+      // Test: Equal arrays.
+      Debug.Assert(ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 }));
+      // Test: Unequal arrays.
+      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 4, 3, 2, 1 }));
+      // Test: Different array lengths.
+      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3 }));
     }
 
     /// <summary>

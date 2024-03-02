@@ -7,7 +7,8 @@ namespace CMP1903_A1_2324 {
   /// Is used to manage an instance of a game being played of dice rolling.
   /// </summary>
   /// <remarks>
-  /// This class performs the basic one round at a time, continuous rolling, and calculation of game statistics.
+  /// This class performs the basic one round at a time, continuous rolling, and calculation of 
+  /// game statistics.
   /// </remarks>
   internal class Game {
     /// <value>
@@ -20,13 +21,17 @@ namespace CMP1903_A1_2324 {
     /// </value>
     /// <remarks>
     /// This is used so that the Die objects do not need to be re-created repeatedly.
-    /// By using an array instead of fields, it would be easier to add more die by changing the <c>DiceCount</c> readonly field.
+    ///
+    /// By using an array instead of fields, it would be easier to add more die by changing the 
+    /// <c>DiceCount</c> readonly field.
+    ///
     /// Using a list would be non-ideal here as the size is not-dynamic at runtime.
     /// </remarks>
     private readonly Die[] dice = new Die[DiceCount];
 
     /// <summary>
-    /// The constructor for the Game class, it is used to initialise instances of all the Die objects.
+    /// The constructor for the Game class, it is used to initialise instances of all the Die 
+    /// objects.
     /// </summary>
     public Game() {
       for (int i = 0; i < DiceCount; i++) {
@@ -38,8 +43,11 @@ namespace CMP1903_A1_2324 {
     /// Plays the game by rolling the 3 die objects.
     /// </summary>
     /// <remarks>
-    /// This method for the game is less likely to be used and is best used to simplify the <c>RollDiceContinually</c> method.
-    /// It is simpler here to just use a tuple return type to avoid the need for creating a new class.
+    /// This method for the game is less likely to be used and is best used to simplify the 
+    /// <c>RollDiceContinually</c> method.
+    ///
+    /// It is simpler here to just use a tuple return type to avoid the need for creating a new 
+    /// class.
     /// </remarks>
     /// <example>
     /// <code>
@@ -55,12 +63,14 @@ namespace CMP1903_A1_2324 {
     /// A tuple containing the total and an array of the individual rolls.
     /// </returns>
     public (int, int[]) RollDice() {
-      int[] rolls = dice.Select(die => die.Roll()).ToArray();  // Roll each die and collect their output to an array.
+      // Roll each die ad collect their output to an array.
+      int[] rolls = dice.Select(die => die.Roll()).ToArray();                                                                 // output to an array.
       return (rolls.Sum(), rolls);
     }
 
     /// <summary>
-    /// A method which extends the functionality of the RollDice method by adding reporting of each roll to the console.
+    /// A method which extends the functionality of the RollDice method by adding reporting of 
+    /// each roll to the console.
     /// </summary>
     /// <returns>
     /// A tuple containing the total and an array of the individual rolls.
@@ -78,7 +88,8 @@ namespace CMP1903_A1_2324 {
     }
 
     /// <summary>
-    /// Plays the game continually until the user presses Q, it also calls for the reporting of statistics.
+    /// Plays the game continually until the user presses Q, it also calls for the reporting of 
+    /// statistics.
     /// </summary>
     /// <returns>
     /// An array of ints for all the rolls that occured during the game.
@@ -107,7 +118,9 @@ namespace CMP1903_A1_2324 {
     /// An array of integers that contains all the die values that have been rolled.
     /// </param>
     public static void GenerateStats(int[] rolls) {
-      Dictionary<int, int> rollCounter = new Dictionary<int, int>();  // Holds the occurance of each die value.
+      // Holds the occurance of each die value.
+      Dictionary<int, int> rollCounter = new Dictionary<int, int>();
+
       foreach (int roll in rolls) {
         if (!rollCounter.ContainsKey(roll))
           rollCounter.Add(roll, 0);
@@ -118,8 +131,9 @@ namespace CMP1903_A1_2324 {
       float total = rolls.Sum();
       double averageRoll = Math.Round(total / rolls.Length, 2);  // Averages the rolls.
 
-      double averageTotal = Math.Round(total * DiceCount / rolls.Length, 2);  // Averages the total score from each round.
-
+      // Averages the total score from each round
+      double averageTotal = Math.Round(total * DiceCount / rolls.Length, 2);
+      // score from each 
       Console.WriteLine($"The average of the totals was {averageTotal}.");
       foreach (KeyValuePair<int, int> entry in rollCounter) {
         Console.WriteLine($"The number {entry.Key} occured {entry.Value} times.");
@@ -132,7 +146,8 @@ namespace CMP1903_A1_2324 {
     /// A method to get an array countaining the dice mapped to be just their values.
     /// </summary>
     /// <remarks>
-    /// This is usually not needed as the methods return the die values, however it is useful for testing to ensure all die values are returned correctly.
+    /// This is usually not needed as the methods return the die values, however it is useful for 
+    /// testing to ensure all die values are returned correctly.
     /// </remarks>
     public int[] GetDieValues() {
       return dice.Select(die => die.Value).ToArray();
