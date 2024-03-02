@@ -20,14 +20,13 @@ namespace CMP1903_A1_2324 {
 
       for (int i = 0; i < 1000; i++) {
         int rolledNum = die.Roll();
-        Debug.Assert(rolledNum == die.Value); // Test: Property set by roll.
-        Debug.Assert(die.Value >= 1); // Test: Value lower bound.
-        Debug.Assert(die.Value <= Die.NumberOfSides); // Test: Value upper bound.
+        Debug.Assert(rolledNum == die.Value, "Failed roll value property check.");
+        Debug.Assert(die.Value >= 1, "Failed lower bound check.");
+        Debug.Assert(die.Value <= Die.NumberOfSides, "Failed upper bound check.");
         bool _ = numbersOccured.Add(rolledNum); // We can throw away the result.
       }
 
-      Debug.Assert(numbersOccured.Count == Die.NumberOfSides);  // Test: Only 6 unique numbers 
-                                                                // occured.
+      Debug.Assert(numbersOccured.Count == Die.NumberOfSides, "Failed dice occured check.");
     }
 
     /// <summary>
@@ -38,29 +37,25 @@ namespace CMP1903_A1_2324 {
 
       (int total, int[] rolls) = game.RollDice();
 
-      Debug.Assert(rolls.Length == Game.DiceCount); // Test: Correct number of rolls occured.
-
-      Debug.Assert(total == rolls.Sum()); // Test: Total report and sum of rolls array equal.
-
+      Debug.Assert(rolls.Length == Game.DiceCount, "Failed rolls vs game dice check.");
+      Debug.Assert(total == rolls.Sum(), "Failed total vs dice sum check.");
       int[] storedRolls = game.GetDieValues();
 
-      Debug.Assert(storedRolls.Length == Game.DiceCount);  // Test: Correct number of dice exist.
-
-      Debug.Assert(rolls.Length == storedRolls.Length);  // Test: Same number of die.
-
-      Debug.Assert(ArraysEqual(rolls, storedRolls));  // Test: Die rolls all the same.
+      Debug.Assert(storedRolls.Length == Game.DiceCount, "Failed stored dice vs game dice check.");
+      Debug.Assert(rolls.Length == storedRolls.Length, "Failed rolls vs stored check.");
+      Debug.Assert(ArraysEqual(rolls, storedRolls), "Failed rolls vs stored rolls array check.");
     }
 
     /// <summary>
     /// Tests that the <c>ArraysEqual</c> method works correctly.
     /// </summary>
     public void TestArrayEqual() {
-      // Test: Equal arrays.
-      Debug.Assert(ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 }));
-      // Test: Unequal arrays.
-      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 4, 3, 2, 1 }));
-      // Test: Different array lengths.
-      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3 }));
+      Debug.Assert(ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 }),
+                  "Failed array equality check.");
+      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 4, 3, 2, 1 }),
+                  "Failed arrays unequal check.");
+      Debug.Assert(!ArraysEqual(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3 }),
+                  "Failed different length array check.");
     }
 
     /// <summary>

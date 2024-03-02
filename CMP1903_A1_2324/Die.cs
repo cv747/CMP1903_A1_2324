@@ -38,7 +38,7 @@ namespace CMP1903_A1_2324 {
     /// Doing a property without a specific field attached to it automatically generates an 
     /// anonymous backing field.
     /// </remarks>
-    public int Value { get; private set; } = _random.Next(1, NumberOfSides - 1);
+    public int Value { get; private set; } = _random.Next(1, NumberOfSides + 1);
 
     /// <summary>
     /// Simulates the action of rolling a die.
@@ -54,7 +54,7 @@ namespace CMP1903_A1_2324 {
     /// An integer of the side the die displayed once rolled.
     /// </returns>
     public int Roll() {
-      Value = _random.Next(1, NumberOfSides);
+      Value = _random.Next(1, NumberOfSides + 1);
       return Value;
     }
 
