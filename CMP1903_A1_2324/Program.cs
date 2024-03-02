@@ -8,7 +8,7 @@
     /// </summary>
     public static void Main() {
       Game game = new Game();
-      int[] _ = game.RollDiceContinually();
+      int[] _ = game.RollDiceContinually(); // _ is used to throw away the result.
 
       Testing testing = new Testing();
       // Test: Ensures Die class operates correctly.
