@@ -366,3 +366,4 @@ out.exe
 make.sh
 bin/
 obj/
+omnisharp.json
