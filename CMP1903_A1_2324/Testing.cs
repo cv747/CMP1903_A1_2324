@@ -3,28 +3,31 @@ using System.Diagnostics;
 using System.Linq;
 
 namespace CMP1903_A1_2324 {
+
   /// <summary>
   /// A class that is used to provide the capabilities to test the different code sections.
   /// </summary>
   internal class Testing {
+
     /// <summary>
     /// Tests the Die class to ensure that all parts are operating correctly.
     /// </summary>
     public void TestDie() {
       Die die = new Die();
 
-      // HashSet will ensure only unique items are stored.
-      HashSet<int> numbersOccured = new HashSet<int>();
+      HashSet<int> numbersOccured = new HashSet<int>();  // HashSet will ensure only unique items 
+                                                         // are stored.
+
       for (int i = 0; i < 1000; i++) {
         int rolledNum = die.Roll();
-        Debug.Assert(rolledNum == die.Value);  // Test: Property set by roll.
-        Debug.Assert(die.Value >= 1);  // Test: Value lower bound.
-        Debug.Assert(die.Value <= Die.NumberOfSides);  // Test: Value upper bound.
-        _ = numbersOccured.Add(rolledNum);
+        Debug.Assert(rolledNum == die.Value); // Test: Property set by roll.
+        Debug.Assert(die.Value >= 1); // Test: Value lower bound.
+        Debug.Assert(die.Value <= Die.NumberOfSides); // Test: Value upper bound.
+        bool _ = numbersOccured.Add(rolledNum); // We can throw away the result.
       }
 
-      // Test: Only 6 unique numbers occured.
-      Debug.Assert(numbersOccured.Count == Die.NumberOfSides);
+      Debug.Assert(numbersOccured.Count == Die.NumberOfSides);  // Test: Only 6 unique numbers 
+                                                                // occured.
     }
 
     /// <summary>
@@ -35,9 +38,9 @@ namespace CMP1903_A1_2324 {
 
       (int total, int[] rolls) = game.RollDice();
 
-      Debug.Assert(rolls.Length == Game.DiceCount);  // Test: Correct number of rolls occured.
+      Debug.Assert(rolls.Length == Game.DiceCount); // Test: Correct number of rolls occured.
 
-      Debug.Assert(total == rolls.Sum());  // Test: Total report and sum of rolls array equal.
+      Debug.Assert(total == rolls.Sum()); // Test: Total report and sum of rolls array equal.
 
       int[] storedRolls = game.GetDieValues();
 

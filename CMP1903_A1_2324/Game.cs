@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace CMP1903_A1_2324 {
+
   /// <summary>
   /// Is used to manage an instance of a game being played of dice rolling.
   /// </summary>
@@ -11,6 +12,7 @@ namespace CMP1903_A1_2324 {
   /// game statistics.
   /// </remarks>
   internal class Game {
+
     /// <value>
     /// A constant value that defines how many dice the Game contains.
     /// </value>
@@ -63,8 +65,8 @@ namespace CMP1903_A1_2324 {
     /// A tuple containing the total and an array of the individual rolls.
     /// </returns>
     public (int, int[]) RollDice() {
-      // Roll each die ad collect their output to an array.
-      int[] rolls = dice.Select(die => die.Roll()).ToArray();                                                                 // output to an array.
+      int[] rolls = dice.Select(die => die.Roll()).ToArray();  // Roll each die ad collect their
+                                                               // output to an array.
       return (rolls.Sum(), rolls);
     }
 

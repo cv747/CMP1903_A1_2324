@@ -1,10 +1,12 @@
 ﻿using System;
 
 namespace CMP1903_A1_2324 {
+
   /// <summary>
   /// This class is designed to be simulate a normal 6-sided die.
   /// </summary>
   internal class Die {
+
     /// <value>
     /// Holds the number of sides on the die.
     /// </value>
@@ -37,7 +39,6 @@ namespace CMP1903_A1_2324 {
     /// anonymous backing field.
     /// </remarks>
     public int Value { get; private set; } = _random.Next(1, NumberOfSides - 1);
-
 
     /// <summary>
     /// Simulates the action of rolling a die.
