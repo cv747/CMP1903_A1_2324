@@ -11,11 +11,11 @@
         public static void Main()
         {
             Game game = new Game();
-            game.RollDiceContinually();
+            int[] _ = game.RollDiceContinually();
 
             Testing testing = new Testing();
             testing.TestDie();  // Test: Ensures Die class operates correctly.
-            testing.TestArrayEqual();   // Test: Ensure array equality checking method works.
+            testing.TestArrayEqual();   // Test: Ensure array equality checking method works (required for the game test).
             testing.TestGame();  // Test: Ensure the game class works.
         }
 

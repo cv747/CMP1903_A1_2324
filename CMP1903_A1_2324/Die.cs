@@ -8,21 +8,30 @@ namespace CMP1903_A1_2324
     internal class Die
     {
         /// <value>
+        /// Holds the number of sides on the die.
+        /// </value>
+        /// <remarks>
+        /// Used for future extendability.
+        /// </remarks>
+        public static readonly int NumberOfSides = 6;
+
+        /// <value>
         /// A static instance of the Random object to create random values for the class.
         /// </value>
         /// <remarks>
         /// This means that we only need to create an instance of the Random class once rather than on every die roll.
-        /// This also avoids RANDOM being created on object instantiation, which would cause all the Die to have the same random seed.
+        /// This avoids <c>_random</c> being created on Die instantiation, which would cause Die's created at the same time to have the same seed.
+        /// Same seed generation could also have been done by passing a Random object to the Die class to increase memory efficiency, but that creates more complexity that is not needed for this.
         /// </remarks>
-        private static readonly Random RANDOM = new Random();
+        private static readonly Random _random = new Random();
 
         /// <value>
         /// The <c>Value</c> property is used to access the side the dice is displaying.
         /// </value>
         /// <remarks>
-        /// Doing a property without a specific field attached to it automatically generates an anonymous backing field2.
+        /// Doing a property without a specific field attached to it automatically generates an anonymous backing field.
         /// </remarks>
-        public int Value { get; private set; } = RANDOM.Next(1, 7);
+        public int Value { get; private set; } = _random.Next(1, NumberOfSides - 1);
 
 
         /// <summary>
@@ -40,7 +49,7 @@ namespace CMP1903_A1_2324
         /// </returns>
         public int Roll()
         {
-            Value = RANDOM.Next(1, 7);
+            Value = _random.Next(1, NumberOfSides);
             return Value;
         }
 

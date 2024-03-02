@@ -22,11 +22,11 @@ namespace CMP1903_A1_2324
                 int rolledNum = die.Roll();
                 Debug.Assert(rolledNum == die.Value);  // Test: Property set by roll.
                 Debug.Assert(die.Value >= 1);  // Test: Value lower bound.
-                Debug.Assert(die.Value <= 6);  // Test: Value upper bound.
+                Debug.Assert(die.Value <= Die.NumberOfSides);  // Test: Value upper bound.
                 _ = numbersOccured.Add(rolledNum);
             }
 
-            Debug.Assert(numbersOccured.Count == 6);  // Test: Only 6 unique numbers occured.
+            Debug.Assert(numbersOccured.Count == Die.NumberOfSides);  // Test: Only 6 unique numbers occured.
         }
 
         /// <summary>
@@ -38,13 +38,13 @@ namespace CMP1903_A1_2324
 
             (int total, int[] rolls) = game.RollDice();
 
-            Debug.Assert(rolls.Length == Game.DICE_COUNT);  // Test: Correct number of rolls occured.
+            Debug.Assert(rolls.Length == Game.DiceCount);  // Test: Correct number of rolls occured.
 
             Debug.Assert(total == rolls.Sum());  // Test: Total report and sum of rolls array equal.
 
             int[] storedRolls = game.GetDieValues();
 
-            Debug.Assert(storedRolls.Length == Game.DICE_COUNT);  // Test: Correct number of dice exist.
+            Debug.Assert(storedRolls.Length == Game.DiceCount);  // Test: Correct number of dice exist.
 
             Debug.Assert(rolls.Length == storedRolls.Length);  // Test: Same number of die.
 
@@ -64,15 +64,28 @@ namespace CMP1903_A1_2324
         /// <summary>
         /// Tests if two array of ints are equal.
         /// </summary>
+        /// <param name="arrOne">
+        /// An array of integers to test.
+        /// </param>
+        /// <param name="arrTwo">
+        /// An array of integers to test against.
+        /// </param>
+        /// <returns>
+        /// A boolean value to show if they are equal or not.
+        /// </returns>
         public static bool ArraysEqual(int[] arrOne, int[] arrTwo)
         {
             if (arrOne.Length != arrTwo.Length)
+            {
                 return false;  // Incorrect length must be not equal.
+            }
 
             for (int i = 0; i < arrOne.Length; i++)
             {
-                if (arrOne[i] != arrTwo[i])  // Compare each element.
+                if (arrOne[i] != arrTwo[i])
+                { // Compare each element.
                     return false;
+                }
             }
 
             return true;  // Arrays equal.
