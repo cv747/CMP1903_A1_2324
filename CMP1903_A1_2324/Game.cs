@@ -50,7 +50,7 @@ namespace CMP1903_A1_2324 {
     /// A tuple of the total as an int and an int array of the individual rolls.
     /// </returns>
     public (int, int[]) RollDice() {
-      int[] rolls = dice.Select(die => die.Roll()).ToArray();  // Roll each die ad collect their
+      int[] rolls = dice.Select(die => die.Roll()).ToArray();  // Roll each die and collect their
                                                                // output to an array.
       return (rolls.Sum(), rolls);
     }
