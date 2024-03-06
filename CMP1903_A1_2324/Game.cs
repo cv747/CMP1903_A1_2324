@@ -7,27 +7,19 @@ namespace CMP1903_A1_2324 {
   /// <summary>
   /// Is used to manage an instance of a game being played of dice rolling.
   /// </summary>
-  /// <remarks>
-  /// This class performs the basic one round at a time, continuous rolling, and calculation of 
-  /// game statistics.
-  /// </remarks>
   internal class Game {
 
     /// <value>
     /// A constant value that defines how many dice the Game contains.
     /// </value>
-    public static readonly int DiceCount = 3;
+    public const int DiceCount = 3;
 
     /// <value>
     /// A list that stores the Die objects that will be rolled.
     /// </value>
     /// <remarks>
-    /// This is used so that the Die objects do not need to be re-created repeatedly.
-    ///
-    /// By using an array instead of fields, it would be easier to add more die by changing the 
-    /// <c>DiceCount</c> readonly field.
-    ///
-    /// Using a list would be non-ideal here as the size is not-dynamic at runtime.
+    /// By using an array instead of fields, it is easier to change the number of die being rolled
+    /// by changing the value of the <c>DiceCount</c> field.
     /// </remarks>
     private readonly Die[] dice = new Die[DiceCount];
 
@@ -44,13 +36,6 @@ namespace CMP1903_A1_2324 {
     /// <summary>
     /// Plays the game by rolling the 3 die objects.
     /// </summary>
-    /// <remarks>
-    /// This method for the game is less likely to be used and is best used to simplify the 
-    /// <c>RollDiceContinually</c> method.
-    ///
-    /// It is simpler here to just use a tuple return type to avoid the need for creating a new 
-    /// class.
-    /// </remarks>
     /// <example>
     /// <code>
     /// Game game = new Game();
@@ -62,7 +47,7 @@ namespace CMP1903_A1_2324 {
     /// </code>
     /// </example>
     /// <returns>
-    /// A tuple containing the total and an array of the individual rolls.
+    /// A tuple of the total as an int and an int array of the individual rolls.
     /// </returns>
     public (int, int[]) RollDice() {
       int[] rolls = dice.Select(die => die.Roll()).ToArray();  // Roll each die ad collect their
@@ -75,7 +60,7 @@ namespace CMP1903_A1_2324 {
     /// each roll to the console.
     /// </summary>
     /// <returns>
-    /// A tuple containing the total and an array of the individual rolls.
+    /// A tuple of the total as an int and an int array of the individual rolls.
     /// </returns>
     public (int, int[]) RollDiceReported() {
       (int total, int[] rolls) = RollDice();
@@ -147,10 +132,6 @@ namespace CMP1903_A1_2324 {
     /// <summary>
     /// A method to get an array countaining the dice mapped to be just their values.
     /// </summary>
-    /// <remarks>
-    /// This is usually not needed as the methods return the die values, however it is useful for 
-    /// testing to ensure all die values are returned correctly.
-    /// </remarks>
     public int[] GetDieValues() {
       return dice.Select(die => die.Value).ToArray();
     }
