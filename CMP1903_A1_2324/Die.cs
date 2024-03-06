@@ -13,7 +13,7 @@ namespace CMP1903_A1_2324 {
     /// <remarks>
     /// Used for future extendability.
     /// </remarks>
-    public static readonly int NumberOfSides = 6;
+    public const int NumberOfSides = 6;
 
     /// <value>
     /// A static instance of the Random object to create random values for the class.
