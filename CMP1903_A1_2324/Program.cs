@@ -1,19 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CMP1903_A1_2324 {
 
-namespace CMP1903_A1_2324
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            /*
-             * Create a Game object and call its methods.
-             * Create a Testing object to verify the output and operation of the other classes.
-             */
-        }
+  /// <summary>
+  /// This is the main class for the program.
+  /// </summary>
+  internal class Program {
+
+    /// <summary>
+    /// This is the program entry-point, all the code begins execution from here.
+    /// </summary>
+    public static void Main() {
+      Game game = new Game();
+      int[] _ = game.RollDiceContinually();  // _ is used to throw away the result.
+
+      Testing testing = new Testing();
+      testing.TestDie();  // Test: Ensures Die class operates correctly.
+
+
+      testing.TestArrayEqual(); // Test: Ensure array equality checking method works
+                                // (required for the game test).
+
+      testing.TestGame(); // Test: Ensure the game class works.
+
     }
+
+  }
 }

@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+out.exe
+make.sh
+bin/
+obj/
+omnisharp.json
