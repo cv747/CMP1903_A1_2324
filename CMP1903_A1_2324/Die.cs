@@ -8,14 +8,6 @@ namespace CMP1903_A1_2324 {
   internal class Die {
 
     /// <value>
-    /// Holds the number of sides on the die.
-    /// </value>
-    /// <remarks>
-    /// Used for future extendability.
-    /// </remarks>
-    public const int NumberOfSides = 6;
-
-    /// <value>
     /// A static instance of the Random object to create random values for the class.
     /// </value>
     /// <remarks>
@@ -24,10 +16,23 @@ namespace CMP1903_A1_2324 {
     /// </remarks>
     private static readonly Random _random = new Random();
 
+
+    public int NumberOfSides { get; private set; }
+
     /// <value>
     /// The <c>Value</c> property is used to access the side the dice is displaying.
     /// </value>
-    public int Value { get; private set; } = _random.Next(1, NumberOfSides + 1);
+    public int Value { get; private set; }
+
+    public Die() {
+      this.Value = _random.Next(1, NumberOfSides + 1);
+      this.NumberOfSides = 6;
+    }
+
+    public Die(int numberOfSides) {
+      this.Value = _random.Next(1, NumberOfSides + 1);
+      this.NumberOfSides = numberOfSides;
+    }
 
     /// <summary>
     /// Simulates the action of rolling a die.

@@ -364,6 +364,7 @@ FodyWeavers.xsd
 
 out.exe
 make.sh
+setup.sh
 bin/
 obj/
 omnisharp.json

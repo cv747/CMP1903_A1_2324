@@ -24,7 +24,7 @@ namespace CMP1903_A1_2324 {
     private readonly Die[] dice = new Die[DiceCount];
 
     /// <summary>
-    /// The constructor for the Game class, it is used to initialise instances of all the Die 
+    /// The constructor for the Game class, it is used to initialise instances of all the Die
     /// objects.
     /// </summary>
     public Game() {
@@ -56,7 +56,7 @@ namespace CMP1903_A1_2324 {
     }
 
     /// <summary>
-    /// A method which extends the functionality of the RollDice method by adding reporting of 
+    /// A method which extends the functionality of the RollDice method by adding reporting of
     /// each roll to the console.
     /// </summary>
     /// <returns>
@@ -75,7 +75,7 @@ namespace CMP1903_A1_2324 {
     }
 
     /// <summary>
-    /// Plays the game continually until the user presses Q, it also calls for the reporting of 
+    /// Plays the game continually until the user presses Q, it also calls for the reporting of
     /// statistics.
     /// </summary>
     /// <returns>
@@ -120,7 +120,7 @@ namespace CMP1903_A1_2324 {
 
       // Averages the total score from each round
       double averageTotal = Math.Round(total * DiceCount / rolls.Length, 2);
-      // score from each 
+      // score from each
       Console.WriteLine($"The average of the totals was {averageTotal}.");
       foreach (KeyValuePair<int, int> entry in rollCounter) {
         Console.WriteLine($"The number {entry.Key} occured {entry.Value} times.");

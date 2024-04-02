@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System;
 
 namespace CMP1903_A1_2324 {
 
@@ -15,18 +16,18 @@ namespace CMP1903_A1_2324 {
     public void TestDie() {
       Die die = new Die();
 
-      HashSet<int> numbersOccured = new HashSet<int>();  // HashSet will ensure only unique items 
+      HashSet<int> numbersOccured = new HashSet<int>();  // HashSet will ensure only unique items
                                                          // are stored.
 
-      for (int i = 0; i < 1000; i++) {
+      for (int i = 0; i < 10000; i++) {
         int rolledNum = die.Roll();
         Debug.Assert(rolledNum == die.Value, "Failed roll value property check.");
         Debug.Assert(die.Value >= 1, "Failed lower bound check.");
-        Debug.Assert(die.Value <= Die.NumberOfSides, "Failed upper bound check.");
+        Debug.Assert(die.Value <= die.NumberOfSides, "Failed upper bound check.");
         bool _ = numbersOccured.Add(rolledNum); // We can throw away the result.
       }
 
-      Debug.Assert(numbersOccured.Count == Die.NumberOfSides, "Failed dice occured check.");
+      Debug.Assert(numbersOccured.Count == die.NumberOfSides, "Failed dice occured check.");
     }
 
     /// <summary>
